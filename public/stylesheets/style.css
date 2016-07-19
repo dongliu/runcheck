@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
+  padding-top: 50px;
+}
+.a-color {
+  color: #0088cc;
+}
+.user img {
+  width: 50%;
+  height: auto;
+  margin: 0px auto;
 }
 
-a {
-  color: #00B7FF;
+
+/* styles for navbar-default */
+.navbar-default{
+  border-bottom: 1px solid rgb(194, 194, 194);
 }

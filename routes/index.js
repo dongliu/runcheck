@@ -1,9 +1,22 @@
-var express = require('express');
-var router = express.Router();
+var authConfig = require('../config/config').auth;
+var auth = require('../lib/auth');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+module.exports = function (app) {
+  app.get('/', function(req, res, next) {
+    res.render('index', { title: 'runcheck',prefix: ''});
+  });
 
-module.exports = router;
+  app.get('/login', auth.ensureAuthenticated, function (req, res) {
+    if (req.session.userid) {
+      return res.redirect(req.proxied ? auth.proxied_service : '/');
+    }
+    // something wrong
+    res.send(400, 'please enable cookie in your browser');
+  });
+
+  app.get('/logout', function (req, res) {
+
+  });
+
+};
+

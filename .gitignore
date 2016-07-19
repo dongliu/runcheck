@@ -28,3 +28,15 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
+
+# bower components
+bower_components/
+
+# IDE configure file
+.idea/
+
+# photoes
+userphoto/
+
+# config
+config/
