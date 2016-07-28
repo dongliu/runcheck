@@ -1,4 +1,13 @@
 var Table = (function (parent) {
+  // public columns starts
+  var selectColumn = {
+    title: '',
+    defaultContent: '<label class="checkbox"><input type="checkbox" class="select-row"></label>',
+    oderDataType: 'dom-checkbox',
+    order: ['desc', 'asc']
+  };
+  // public columns end
+
   // general function starts
   function addFilterFoot(table, columns) {
     var tr = $('<tr role="row">');
@@ -72,6 +81,8 @@ var Table = (function (parent) {
     }
     return bar[0].outerHTML;
   }
+
+  parent.selectColumn = selectColumn;
 
   parent.addFilterFoot = addFilterFoot;
   parent.selectEvent = selectEvent;

@@ -1,11 +1,13 @@
-/*global Table: false*/
+/*global Table: false, Holder: false*/
 
 // device columns starts
-var selectColumn = {
-  title: '',
-  defaultContent: '<label class="checkbox"><input type="checkbox" class="select-row"></label>',
-  oderDataType: 'dom-checkbox',
-  order: ['desc', 'asc']
+var detailsColum = {
+  title: 'Details',
+  data: 'details',
+  render: function (data) {
+    return '<a href="' + '/details/' + data + '/" target="_blank" data-toggle="tooltip" title="go to the device details"><i class="fa fa-list-alt fa-2x"></i></a>';
+  },
+  order: false
 };
 
 var serialNoColumn = {
@@ -38,15 +40,6 @@ var departmentColumn = {
 
 var ownerColumn = Table.personColumn('Owner', 'owner');
 
-var detailsColum = {
-  title: 'Details',
-  data: 'details',
-  render: function (data) {
-    return '<a href="' + '/details/' + data + '/" target="_blank" data-toggle="tooltip" title="go to the device details"><i class="fa fa-list-alt fa-2x"></i></a>';
-  },
-  order: false
-};
-
 var checkedProgressColumn = {
   title: 'Checked progress',
   order: true,
@@ -61,7 +54,8 @@ var checkedProgressColumn = {
 
 
 $(function () {
-  var deviceColumns = [selectColumn, detailsColum, serialNoColumn, nameColumn, typeColumn, departmentColumn, ownerColumn, checkedProgressColumn];
+  var deviceColumns = [Table.selectColumn, detailsColum, serialNoColumn, nameColumn, typeColumn, departmentColumn, ownerColumn, checkedProgressColumn ];
+
   $('#device-table').DataTable({
     ajax: {
       url: '/devices/json',
