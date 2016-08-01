@@ -13,8 +13,8 @@ var slot = new Schema({
   area: String, // not in slot excel file
   level: {
     type: String,
-    default: 'low',
-    enum: ['low', 'medium', 'high']
+    default: 'Low',
+    enum: ['Low', 'Medium', 'High']
   },
   approvalStatus: {// not in slot excel file
     type: Boolean,
@@ -40,5 +40,6 @@ var slot = new Schema({
 var Slot = mongoose.model('Slot', slot);
 
 module.exports = {
-  Slot: Slot
+  Slot: Slot,
+  slotSchema: slot
 };

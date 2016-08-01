@@ -28,6 +28,8 @@
     "should": "4.1.0",
     "mocha": "2.0.1",
     "eslint": "3.0.1",
-    "eslint-plugin-filenames": "1.0.0"
+    "eslint-plugin-filenames": "1.0.0",
+    "xlsx": "0.8.0",
+    "async": "2.0.1"
   }
 }
